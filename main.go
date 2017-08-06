@@ -36,7 +36,9 @@ func main() {
 	e.Renderer = renderer
 
 	h := func(c echo.Context) error {
-		return c.Render(http.StatusOK, "test.html", map[string]interface{}{} /* context */)
+		return c.Render(http.StatusOK, "test.html", map[string]interface{}{
+			"homelink": e.Reverse("home"),
+		} /* context */)
 	}
 
 	// define the route and provide a name for them
