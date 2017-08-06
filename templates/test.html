@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Testing</title>
+</head>
+
+<body>
+    <!-- named route in the action attribute -->
+    <form method="post" action="{{ url("form", "test") }}">
+        <!-- csrf token added manually as a hidden field -->
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+        <!-- csrf markup generated in the context processor and just printed in the markup -->
+        {{ csrf_token_input | safe }}
+        <input type="test" value="testing..." />
+        <input type="submit" />
+</body>
+
+</html>
